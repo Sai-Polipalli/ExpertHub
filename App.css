@@ -1,0 +1,514 @@
+
+/* ---------- Color palette ---------- */
+:root {
+  --primary: #6366F1;
+  --accent: #8B5CF6;
+  --page-bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-primary: #1E293B;
+  --text-secondary: #64748B;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --border: #E2E8F0;
+  --danger: #EF4444;
+  --shadow: 0 4px 18px rgba(30, 41, 59, 0.07);
+}
+
+/* ---------- Global styles ---------- */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: var(--page-bg);
+  color: var(--text-primary);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.3);
+  outline-offset: 2px;
+}
+
+/* ---------- Main layout ---------- */
+.app-shell {
+  min-height: 100vh;
+  background: var(--page-bg);
+}
+
+.topbar {
+  min-height: 76px;
+  padding: 16px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: white;
+  background: linear-gradient(120deg, #6366F1, #8B5CF6);
+  box-shadow: var(--shadow);
+}
+
+.topbar h2 {
+  margin: 0;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.topbar span {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.page-container {
+  width: min(1200px, 92%);
+  margin: 0 auto;
+  padding: 36px 0;
+}
+
+.page-container > h1 {
+  margin: 0 0 10px;
+  font-size: clamp(28px, 4vw, 38px);
+  letter-spacing: -1px;
+}
+
+.page-container > p {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---------- Search and filters ---------- */
+.directory-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 28px 0;
+}
+
+.search-box {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 16px;
+  color: var(--text-primary);
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+}
+
+.search-box:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.directory-toolbar select {
+  padding: 13px;
+  color: var(--text-primary);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+/* ---------- Expert grid ---------- */
+.expert-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 24px;
+}
+
+.expert-card {
+  min-width: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.expert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(99, 102, 241, 0.12);
+}
+
+.card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.avatar {
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  color: var(--primary);
+  background: #EEF2FF;
+  border-radius: 16px;
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.expert-card h3 {
+  margin: 0 0 7px;
+  font-size: 20px;
+}
+
+.expert-role {
+  margin: 0 0 16px;
+  color: var(--primary);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.expert-card h4 {
+  margin: 20px 0 12px;
+  font-size: 14px;
+}
+
+/* ---------- Status badges ---------- */
+.status {
+  padding: 6px 10px;
+  border-radius: 30px;
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.status-available {
+  color: #047857;
+  background: #D1FAE5;
+}
+
+.status-busy {
+  color: #92400E;
+  background: #FEF3C7;
+}
+
+.status-left {
+  color: #64748B;
+  background: #F1F5F9;
+}
+
+/* ---------- Technology tags ---------- */
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tech-tag {
+  padding: 7px 10px;
+  color: #4F46E5;
+  background: #EEF2FF;
+  border: 1px solid #E0E7FF;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ---------- GitHub link ---------- */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  align-self: flex-start;
+  margin: 4px 0 20px;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.github-link:hover {
+  color: var(--primary);
+}
+
+/* ---------- Buttons ---------- */
+.card-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 42px;
+  padding: 11px 15px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.primary-button {
+  color: white;
+  background: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+.primary-button:hover {
+  background: #4F46E5;
+  border-color: #4F46E5;
+}
+
+.secondary-button {
+  color: var(--primary);
+  background: white;
+  border: 1px solid #C7D2FE;
+}
+
+.secondary-button:hover {
+  background: #EEF2FF;
+}
+
+.card-actions > button {
+  flex: 1;
+}
+
+.full-button {
+  width: 100%;
+}
+
+/* ---------- Modal and popup ---------- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: auto;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 480px);
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 28px;
+  color: var(--text-primary);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: 0 25px 80px rgba(15, 23, 42, 0.25);
+}
+
+.modal h2 {
+  margin: 0 0 20px;
+  font-size: 23px;
+}
+
+.close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 34px;
+  height: 34px;
+  color: var(--text-secondary);
+  background: #F1F5F9;
+  border: none;
+  border-radius: 9px;
+}
+
+.close-button:hover {
+  color: var(--text-primary);
+  background: #E2E8F0;
+}
+
+/* ---------- Chat ---------- */
+.chat-messages {
+  max-height: 300px;
+  min-height: 100px;
+  margin: 18px 0;
+  padding: 12px;
+  overflow-y: auto;
+  background: var(--page-bg);
+  border-radius: 12px;
+}
+
+.message {
+  width: fit-content;
+  max-width: 90%;
+  margin: 8px 0;
+  padding: 11px 14px;
+  color: var(--text-primary);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 12px 12px 12px 3px;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.message-you {
+  margin-left: auto;
+  color: white;
+  background: var(--primary);
+  border-color: var(--primary);
+  border-radius: 12px 12px 3px 12px;
+}
+
+.chat-input {
+  display: flex;
+  gap: 8px;
+}
+
+.chat-input input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+}
+
+.chat-input input:focus {
+  border-color: var(--primary);
+}
+
+.modal small,
+.demo-note {
+  display: block;
+  margin-top: 16px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* ---------- Scheduling form ---------- */
+.schedule-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.schedule-form label {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.schedule-form input,
+.schedule-form select,
+.schedule-form textarea {
+  width: 100%;
+  padding: 12px;
+  color: var(--text-primary);
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.schedule-form textarea {
+  resize: vertical;
+}
+
+.confirmation {
+  text-align: center;
+}
+
+.confirmation h3 {
+  margin-bottom: 8px;
+}
+
+.confirmation p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.confirmation .primary-button {
+  margin-top: 16px;
+}
+
+/* ---------- Empty state ---------- */
+.empty-state {
+  padding: 60px 20px;
+  text-align: center;
+  color: var(--text-secondary);
+  background: white;
+  border: 1px dashed #CBD5E1;
+  border-radius: 16px;
+}
+
+.empty-state h3 {
+  color: var(--text-primary);
+}
+
+/* ---------- Responsive design ---------- */
+@media (max-width: 900px) {
+  .expert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .topbar {
+    padding: 16px 5%;
+  }
+
+  .topbar span {
+    max-width: 130px;
+    text-align: right;
+    font-size: 11px;
+  }
+
+  .page-container {
+    width: 92%;
+    padding-top: 26px;
+  }
+
+  .directory-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .directory-toolbar select {
+    width: 100%;
+  }
+
+  .expert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .expert-card {
+    padding: 20px;
+  }
+
+  .modal {
+    padding: 24px 18px;
+  }
+
+  .card-actions {
+    gap: 8px;
+  }
+}
